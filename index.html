@@ -1,11 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>hello shyambaba</p>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        html,body{
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+        .nav{
+            height: 60px;
+            width: 100%;
+            /* background-color: crimson; */
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+
+        }
+        .nav img{
+            height: 30px;
+            /* width 200px; */
+        }
+        .nav .part2{
+            /* width: 20%; */
+            display: flex;
+            gap: 60px;
+        }
+        
+        .nav .partnxt{
+            /* width: 20%; */
+            align-items: center;
+            display: flex;
+            gap: 20px;
+        }
+        h5{
+            
+            /* font-size: 1.4rem; */
+            text-transform: uppercase;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        button{
+            padding: 15px 20px;
+            color: black;
+            font-weight: 900;
+            border: none;
+        }
+        #mainkah{
+            margin-top: 40px;
+        }
+        .main h1{
+            font-size: 140px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main h1 span{
+            background-color: brown;
+            border-radius: 50px;
+            font-size: 25px;
+            margin: 0 20px;
+            padding: 20px 70px;
+        }
+        .main #leftimg{
+            height: 200px;
+            position: absolute;
+            top: 20%;
+            left: 5%;
+            border-radius: 20px;
+    }
+    
+    .main #rightimg{
+            height: 200px;
+            position: absolute;
+            bottom: 5%;
+            right: 0%;
+            border-radius: 20px;
+    }
+    .main h2{
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%,0);
+
+    }
+    </style>
+    </head>
+    <body>
+        <div class="main">
+
+            <div class="nav">
+                <img
+                    src="https://logos-download.com/wp-content/uploads/2016/12/Squarespace_logo_white-black.png"
+                    alt>
+                <div class="part2">
+                    <h5>Product</h5>
+                    <h5>Template</h5>
+                    <h5>Resourse</h5>
+                </div>
+                <div class="partnxt">
+                    <h5>Log In</h5>
+                    <button>GET STARTED</button>
+                </div>
+            </div>
+            <h1 id="mainkah">everythink</h1>
+            <h1>to <span>book now</span> sell</h1>
+            <h1>anything</h1>
+            <img id="leftimg"
+            src="https://plus.unsplash.com/premium_photo-1678812165206-688656de3b73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+            alt>
+            <img id="rightimg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Z2lybHMlMjBhcnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="">
+            <h2>scroll down</h2>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            let timelineofgsapanimation = gsap.timeline();
+
+            timelineofgsapanimation.from('.nav img,h5,button',{
+                y:-100,
+                duration:0.5,
+                delay:0.2,
+                stagger:0.2
+            })
+
+            timelineofgsapanimation.from('.main h1,span',{
+                y:20,
+                duration:0.4,
+                delay:0.2,
+                // backgroundColor:'white',
+                opacity:0,
+                stagger:0.2
+            })
+            
+            timelineofgsapanimation.from('.main span',{
+                scale:0.4,
+                rotate:90,
+            })
+            
+            timelineofgsapanimation.from('.main>img',{
+                scale:0,
+                opacity:0,
+            })
+            timelineofgsapanimation.from('.main h2',{
+                opacity:0,
+                scale:0
+            })
+            
+            timelineofgsapanimation.to('.main h2',{
+                y:10,
+                duration:0.4,
+                repeat:-1,
+                yoyo:true,
+            })
+        </script>
+    </body>
 </html>
